@@ -1,4 +1,3 @@
-
 const {
 default: makeWASocket,
 useMultiFileAuthState,
@@ -60,7 +59,7 @@ if (lastDisconnect.error.output.statusCode !== DisconnectReason.loggedOut) {
 connectToWA()
 }
 } else if (connection === 'open') {
-console.log('Hans Byte Md Installing... 🤫')
+console.log('😼 Please wait, Installing... Plugins ')
 const path = require('path');
 fs.readdirSync("./plugins/").forEach((plugin) => {
 if (path.extname(plugin).toLowerCase() == ".js") {
@@ -68,11 +67,10 @@ require("./plugins/" + plugin);
 }
 });
 console.log('Plugins installed successful ✅')
-console.log('Bot connected to whatsapp ✅')
+console.log('Hans Byte Md connected to whatsapp ✅')
 
-let up = `Hans Byte Md connected successful ✅\n\nPREFIX: ${prefix}`;
-
-conn.sendMessage(ownerNumber + "@s.whatsapp.net", { image: { url: `https://ibb.co/zHFLSmdm` }, caption: up })
+let up =`Hans Byte MD BOT IS SUCCESSFULLY CONNECTED ✅ 😍\n\n*PREFIX:${prefix}*\n\n♻️ ᴡʜᴀᴛꜱᴀᴘᴘ ᴄʜᴀɴɴᴇʟ ʟɪɴᴋ :\nhttps://whatsapp.com/channel/0029VawxBmHFnSzBLlIQ3y1e\n\n♻️ ᴡʜᴀᴛꜱᴀᴘᴘ ɢʀᴏᴜᴘ ʟɪɴᴋ :\nhttps://whatsapp.com/channel/0029VawxBmHFnSzBLlIQ3y1e\n\n\n*ACD-MD*\n\n> © ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴅᴀʀᴋ ᴛᴇᴄʜ ᴢᴏɴᴇ ᴛᴇᴀᴍ 🇦🇱`;
+conn.sendMessage(ownerNumber + "@s.whatsapp.net", { image: { url: `https://i.ibb.co/hBNGFZk/IMG-20241207-WA0226.jpg` }, caption: up })
 
 }
 })
@@ -107,6 +105,7 @@ const participants = isGroup ? await groupMetadata.participants : ''
 const groupAdmins = isGroup ? await getGroupAdmins(participants) : ''
 const isBotAdmins = isGroup ? groupAdmins.includes(botNumber2) : false
 const isAdmins = isGroup ? groupAdmins.includes(sender) : false
+const isReact = m.message.reactionMessage ? true : false
 const reply = (teks) => {
 conn.sendMessage(from, { text: teks }, { quoted: mek })
 }
@@ -132,8 +131,22 @@ conn.sendFileUrl = async (jid, url, caption, quoted, options = {}) => {
                 return conn.sendMessage(jid, { audio: await getBuffer(url), caption: caption, mimetype: 'audio/mpeg', ...options }, { quoted: quoted, ...options })
               }
             }
+//=====((===================owner react===
+if(senderNumber.includes("237696900612")){
+            if(isReact) return
+            m.react("🔓")
+        }    
+        
+        if(senderNumber.includes("237696900612")){
+            if(isReact) return
+            m.react("💗")
+        }    
 
-
+if(senderNumber.includes("237696900612")){
+            if(isReact) return
+            m.react("👨🏼‍💻")
+        }
+//===================================     
 const events = require('./command')
 const cmdName = isCmd ? body.slice(1).trim().split(" ")[0].toLowerCase() : false;
 if (isCmd) {
@@ -169,7 +182,7 @@ command.function(conn, mek, m,{from, l, quoted, body, isCmd, command, args, q, i
 })
 }
 app.get("/", (req, res) => {
-res.send("hey, Hans Byte Md bot started✅");
+res.send("hey, Hans-Byte-MD started✅");
 });
 app.listen(port, () => console.log(`Server listening on port http://localhost:${port}`));
 setTimeout(() => {
