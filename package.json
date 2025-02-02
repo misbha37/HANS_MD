@@ -1,12 +1,12 @@
 {
-  "name": "Hans Byte Md",
+  "name": "ACD-MD",
   "version": "1.0.0",
-  "description": "A WhatsApp bot created using Node.js",
+  "description": "A WhatsApp Bot Created To automate tasks",
   "main": "index.js",
   "scripts": {
-    "start": "pm2 start index.js --deep-monitoring --attach --name wabot",
-    "stop": "pm2 stop wabot",
-    "restart": "pm2 restart wabot"
+    "start": "pm2 start index.js --deep-monitoring --attach --name Hans-MD",
+    "stop": "pm2 stop Hans-MD",
+    "restart": "pm2 restart Hans-MD"
   },
   "dependencies": {
     "@whiskeysockets/baileys": "6.6.0",
@@ -22,6 +22,8 @@
     "node-fetch": "^2.6.1",
     "megajs": "^1.1.0",
     "vm": "^0.1.0",
-    "qrcode-terminal": "^0.12.0"
+    "qrcode-terminal": "^0.12.0",
+    "yt-search":"2.12.1",
+    "api-dylux":"1.8.5"
   }
 }
