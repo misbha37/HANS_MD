@@ -11,5 +11,6 @@ ALIVE_MSG: process.env.ALIVE_MSG || "HEY DEAR, I'm thrilled to announce that Han
 SUDO_NB: process.env.SUDO_NB || "237696900612",
 AUTO_READ_STATUS: process.env.AUTO_READ_STATUS || "false",
 MODE: process.env.MODE || "public",
-AUTO_VOICE:"true"
+AUTO_VOICE:"true",
+OMDB_API_KEY: "5e339fb7"
 };
