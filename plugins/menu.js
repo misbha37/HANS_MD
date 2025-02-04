@@ -77,7 +77,7 @@ Consider joining my channel
 │║◆┊ *DATE* ➻ ${currentDate}
 │║◆┊ *MODE* ➻ ${config.MODE}
 │║◆┊ *TIME* ➻ ${currentTime} GMT
-│║◆┊ *PLUGINS* ➻ 14
+│║◆┊ *PLUGINS* ➻ 15
 ┌┤
 ┊╰─━━═••═━━••═━━••═━━⊛   
 ╰⊷••HANS BYTE MD ✞••
@@ -139,10 +139,23 @@ Consider joining my channel
 ╰══════════⊷
 
 ╭════════════⊷❍ 
-┊ 5 || OTHER MENU
+┊ 6 || OTHER MENU
 ┊─────────━⊷
 ┊ .ai
 ┊ .news
+┊ .hack
+╰══════════⊷
+
+╭════════════⊷❍ 
+┊ 7 || STAMK MENU
+┊─────────━⊷
+┊ .ghstalk <username>
+╰══════════⊷
+
+╭════════════⊷❍ 
+┊ 8 || RELIGION
+┊─────────━⊷
+┊ .bible <chapter><verse>
 ╰══════════⊷
 
 Hans Byte Md By HANS TECH
