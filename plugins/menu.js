@@ -109,6 +109,7 @@ Consider joining my channel
 ┊ 3 || SEARCH MENU
 ┊─────────━⊷
 ┊ .yts
+┊ .img
 ╰══════════⊷
 
 
@@ -139,11 +140,15 @@ Consider joining my channel
 ╰══════════⊷
 
 ╭════════════⊷❍ 
-┊ 6 || OTHER MENU
+┊ 6 || TOOLS MENU
 ┊─────────━⊷
-┊ .ai
-┊ .news
+┊ .ai <query>
+┊ .news <query>
 ┊ .hack
+┊ .trt <.trt info>
+┊ .shorten <url>
+┊ .fact
+┊ .dalle
 ╰══════════⊷
 
 ╭════════════⊷❍ 
@@ -156,6 +161,7 @@ Consider joining my channel
 ┊ 8 || RELIGION
 ┊─────────━⊷
 ┊ .bible <chapter><verse>
+┊ .quran <surah number>
 ╰══════════⊷
 
 Hans Byte Md By HANS TECH
