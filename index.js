@@ -17,7 +17,7 @@ const util = require('util')
 const { sms,downloadMediaMessage } = require('./lib/msg')
 const axios = require('axios')
 const { File } = require('megajs')
-const prefix = '.'
+const prefix = config.PREFIX
 
 const ownerNumber = ['237696900612']
 
@@ -69,7 +69,7 @@ require("./plugins/" + plugin);
 console.log('Plugins installed successful ✅')
 console.log('Hans Byte Md connected to whatsapp ✅')
 
-let up =`Hans Byte MD BOT IS SUCCESSFULLY CONNECTED ✅ 😍\n\n*PREFIX:${prefix}*\n\n♻️ ᴡʜᴀᴛꜱᴀᴘᴘ ᴄʜᴀɴɴᴇʟ ʟɪɴᴋ :\nhttps://whatsapp.com/channel/0029VawxBmHFnSzBLlIQ3y1e\n\n♻️ ᴡʜᴀᴛꜱᴀᴘᴘ ɢʀᴏᴜᴘ ʟɪɴᴋ :\nhttps://whatsapp.com/channel/0029VawxBmHFnSzBLlIQ3y1e\n\n\n*ACD-MD*\n\n> © ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴅᴀʀᴋ ᴛᴇᴄʜ ᴢᴏɴᴇ ᴛᴇᴀᴍ 🇦🇱`;
+let up =`Hans Byte MD BOT IS SUCCESSFULLY CONNECTED ✅ 😍\n\n*PREFIX: ${prefix}*\n\n♻️ ᴡʜᴀᴛꜱᴀᴘᴘ ᴄʜᴀɴɴᴇʟ ʟɪɴᴋ :\nhttps://whatsapp.com/channel/0029VaZDIdxDTkKB4JSWUk1O\n\n♻️ ᴡʜᴀᴛꜱᴀᴘᴘ ɢʀᴏᴜᴘ ʟɪɴᴋ :\nhttps://chat.whatsapp.com/K0GPSSfr16j8VsIAU8uHYM\n\n\n*HANS BYTE MD*\n\n> © ᴘᴏᴡᴇʀᴇᴅ ʙʏ Hans Tech Team`;
 conn.sendMessage(ownerNumber + "@s.whatsapp.net", { image: { url: `https://i.ibb.co/hBNGFZk/IMG-20241207-WA0226.jpg` }, caption: up })
 
 }
