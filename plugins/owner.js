@@ -27,4 +27,8 @@ await conn.sendMessage(from,{image:{url: `https://i.imghippo.com/files/ra7818HI.
 console.log(e)
 reply(`${e}`)
 }
+<<<<<<< HEAD
 })
+=======
+})
+>>>>>>> 0bb5c2f (HANS BYTE :))

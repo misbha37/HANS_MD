@@ -60,3 +60,58 @@ async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sen
         reply(`❌ Error: ${e.message}`);
     }
 });
+
+/*============================================================================================================================================*/
+
+const pkg = require('api-qasim');
+const { igStalk } = pkg;
+
+cmd({
+    pattern: "igstalk",
+    desc: "Fetch detailed Instagram profile information.",
+    category: "other",
+    react: "📸",
+    filename: __filename
+},
+async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sender, pushname, reply }) => {
+    try {
+        // Combine args to get the Instagram username
+        const username = args.join(' ');
+        if (!username) {
+            return reply("📸 Please provide an Instagram username.\nExample: .igstalk hansbyte");
+        }
+
+        // Fetch Instagram profile data
+        const data = await igStalk(username);
+
+        // Check if valid data was received
+        if (!data || !data.username) {
+            return reply("🚫 Unable to fetch the Instagram profile. Please try again later.");
+        }
+
+        // Create a formatted message with the Instagram user details
+        const profileInfo = `
+╭──「 *Instagram Stalker* 」
+│ 📛 *Name:* ${res.name || "Unknown"}
+│ 🔖 *Username:* ${res.username}
+│ 👥 *Followers:* ${res.followers}
+│ 🫂 *Following:* ${res.following}
+│ 📝 *Bio:* ${res.description || "No Bio"}
+│ 📸 *Posts:* ${res.posts}
+│ 🔗 *Profile:* https://instagram.com/${res.username.replace(/^@/, '')}
+╰──────────────⊷
+*© Hans Byte MD*`;
+
+        // Define the image URL using the profile picture or fallback image from config
+        const imageUrl = (data.profilePic && data.profilePic !== 'N/A') ? data.profilePic : config.ALIVE_IMG;
+
+        // Send the Instagram profile details along with the profile picture
+        await conn.sendMessage(from, {
+            image: { url: imageUrl },
+            caption: profileInfo
+        }, { quoted: mek });
+    } catch (e) {
+        console.error("Error fetching Instagram profile:", e);
+        reply(`❌ Error: ${e.message}`);
+    }
+});
