@@ -14,7 +14,7 @@ async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sen
         // Combine args to get the GitHub username
         const username = args.join(' ');
         if (!username) {
-            return reply("👤 Please provide a GitHub username.\nExample: .stalk DeeCeeXxx");
+            return reply("👤 Please provide a GitHub username.\nExample: .ghstalk HaroldMth");
         }
 
         // Build the API URL using the provided username

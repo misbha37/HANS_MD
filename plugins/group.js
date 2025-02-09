@@ -161,8 +161,4 @@ async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sen
         console.log(e)
         reply(`${e}`)
     }
-<<<<<<< HEAD
 })
-=======
-})
->>>>>>> 0bb5c2f (HANS BYTE :))
