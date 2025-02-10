@@ -11,8 +11,13 @@ cmd({
 },
 async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply }) => {
     try {
-        if (!q) return reply("*❌ Please provide an Instagram reel URL!*\nExample: .reel <URL>");
-        
+        if (!q) return reply("*❌ Please provide an Instagram reel URL!*\nExample: .ig <URL>");
+
+        // Validate URL (basic check)
+        if (!q.startsWith("https://www.instagram.com/reel/")) {
+            return reply("*❌ Invalid Instagram reel URL!*");
+        }
+
         const apiUrl = `https://itzpire.com/download/instagram?url=${encodeURIComponent(q)}`;
         const response = await fetch(apiUrl);
         const data = await response.json();
@@ -21,7 +26,9 @@ async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sen
 
         const media = data.data.media[0];
         const postInfo = data.data.postInfo;
-        
+
+        if (!media || !media.downloadUrl) return reply("❌ No media found in this post.");
+
         let desc = `
 ╔══✦❘༻ *HANS BYTE* ༺❘✦══╗
 ┇  🌀 *𝗜𝗡𝗦𝗧𝗔𝗚𝗥𝗔𝗠 𝗗𝗢𝗪𝗡𝗟𝗢𝗔𝗗𝗘𝗥* 🌀
@@ -37,15 +44,15 @@ async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sen
 │•💬 𝗖𝗼𝗺𝗺𝗲𝗻𝘁𝘀: ${postInfo.commentsCount || '0'}
 ╰━✦❘༻ *HANS BYTE* ༺❘✦━╯
 > POWERED BY HANS BYTE MD `;
-        
-        // Send thumbnail (if available)
+
+        // Send video
         if (media.type === "video") {
             await conn.sendMessage(from, { video: { url: media.downloadUrl }, caption: desc }, { quoted: mek });
         } else {
             return reply("❌ No video found in this post.");
         }
     } catch (e) {
-        console.error(e);
+        console.error("Error fetching Instagram reel:", e);
         reply("⚠️ Error fetching the Instagram reel.");
     }
 });

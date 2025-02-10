@@ -115,3 +115,60 @@ async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sen
         reply(`❌ Error: ${e.message}`);
     }
 });
+// WA stalk 
+const fetch = require('node-fetch');
+
+cmd({
+  pattern: "wastalk",
+  alias: ["whatsappstalk"],
+  desc: "Stalk a WhatsApp channel using a provided URL",
+  category: "info",
+  react: "🔍",
+  filename: __filename
+},
+async (conn, mek, m, { reply, sender, args, q }) => {
+  try {
+    // Use user-supplied URL input
+    let inputUrl = args[0];
+    if (!inputUrl || !inputUrl.startsWith("https://")) {
+      return reply("❌ *Please provide a valid WhatsApp channel URL.*\n\nUsage: `.stalk <channel url>`");
+    }
+    
+    // Construct the API URL using the user URL as a query parameter.
+    // (If the API does not support query parameters, you may need to remove this part.)
+    let apiUrl = `https://itzpire.com/stalk/whatsapp-channel?url=${encodeURIComponent(inputUrl)}`;
+    console.log(`[DEBUG] Fetching WhatsApp channel info from: ${apiUrl}`);
+    
+    // Fetch channel data from the API
+    const res = await fetch(apiUrl);
+    const data = await res.json();
+    console.log("[DEBUG] API response:", data);
+    
+    // Validate API response
+    if (data.status !== "success") {
+      return reply("❌ *Failed to retrieve channel info.*\nPlease check the URL and try again.");
+    }
+    
+    const channel = data.data;
+    
+    // Create a fancy caption styled similar to your Instagram stalker example.
+    let fancyCaption =
+`╭──「 *WhatsApp Channel Stalker* 」
+│ 📛 *Title:* ${channel.title || "Unknown"}
+│ 👥 *Followers:* ${channel.followers || "N/A"}
+│ 📝 *Description:* ${channel.description || "No Description"}
+│ 🖼️ *Image:* ${channel.img || "N/A"}
+╰──────────────⊷
+*© Hans Byte MD*`;
+    
+    // Send the channel image with the fancy caption.
+    await conn.sendMessage(m.chat, {
+      image: { url: channel.img },
+      caption: fancyCaption
+    }, { quoted: mek });
+    
+  } catch (e) {
+    console.error(e);
+    reply(`❌ *An error occurred:*\n\`\`\`${e}\`\`\``);
+  }
+});

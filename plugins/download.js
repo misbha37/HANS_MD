@@ -10,7 +10,7 @@ let baseUrl;
 })();
 
 
-const yourName = "*©ᴘᴏᴡᴇʀᴅ ʙʏ ᴀᴄᴅ-ᴍᴅ*";
+const yourName = "*POWERED BY HANS BYTE MD*";
 
 
 
@@ -38,44 +38,6 @@ async(conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, send
     }
 })
 
-//tiktok downloader
-cmd({
-    pattern: "tiktok",
-    alias: ["tt"],
-    desc: "download tt videos",
-    category: "download",
-    react: "🔎",
-    filename: __filename
-},
-async (conn, mek, m, { from, quoted, q, reply }) => {
-    try {
-        if (!q || !q.startsWith("https://")) return reply("Give me a valid TikTok URL");
-        
-        // Fetch data from API
-        let apiUrl = `https://api.davidcyriltech.my.id/download/tiktok?url=${q}`;
-        let data = await fetchJson(apiUrl);
-
-        if (!data.success || data.status !== 200) return reply("Failed to download video. Please check the URL and try again.");
-
-        let result = data.result;
-
-        // Send author details
-        let authorInfo = `*Author:* ${result.author.nickname}\n*Likes:* ${result.statistics.likeCount}\n*Comments:* ${result.statistics.commentCount}\n*Shares:* ${result.statistics.shareCount}\n\n*Description:* ${result.desc}`;
-        await conn.sendMessage(from, { image: { url: result.author.avatar }, caption: authorInfo }, { quoted: mek });
-
-        reply("*Downloading...*");
-
-        // Send video (no watermark)
-        await conn.sendMessage(from, { video: { url: result.video }, mimetype: "video/mp4", caption: `- NO-WATERMARK\n\n By Hans Tech` }, { quoted: mek });
-
-        // Send music
-        await conn.sendMessage(from, { audio: { url: result.music }, mimetype: "audio/mpeg" }, { quoted: mek });
-
-    } catch (e) {
-        console.log(e);
-        reply("Error fetching video. Please try again later.");
-    }
-});
 
 //twitter dl (x)
 cmd({
@@ -103,46 +65,69 @@ async(conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, send
     }
 })
 
-//gdrive(google drive) dl
+// gdrive (google drive) download command
 cmd({
     pattern: "gdrive",
     alias: ["googledrive"],
-    desc: "download gdrive files",
+    desc: "Download Google Drive files",
     category: "download",
     react: "🔎",
     filename: __filename
-},
-async(conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply }) => {
+  },
+  async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply }) => {
     try {
-        if (!q && !q.startsWith("https://")) return reply("give me gdrive url")
-        //fetch data from api  
-        let data = await fetchJson(`${baseUrl}/api/gdrivedl?url=${q}`)
-        reply("*Downloading...*")
-        await conn.sendMessage(from, { document: { url: data.data.download }, fileName: data.data.fileName, mimetype: data.data.mimeType, caption: `${data.data.fileName}\n\n${yourName}` }, { quoted: mek })                                                                                                                 
-    } catch (e) {
-        console.log(e)
-        reply(`${e}`)
-    }
-})
+      // Validate that a query is provided and that it starts with "https://"
+      if (!q || !q.startsWith("https://")) {
+        return reply("❌ Please provide a valid Google Drive URL.\nUsage: .gdrive <google drive url>");
+      }
+  
+      // Construct the API URL using the provided drive URL.
+      // (Here we use the endpoint from David Cyril's API.)
+      let apiEndpoint = `https://api.davidcyriltech.my.id/gdrive?url=${encodeURIComponent(q)}`;
+      console.log(`[DEBUG] Fetching data from API: ${apiEndpoint}`);
+  
+      // fetchJson is assumed to be a helper function that fetches and returns JSON from a URL.
+      let data = await fetchJson(apiEndpoint);
+      console.log("[DEBUG] API response:", data);
+  
+      // Check that the API indicates success.
+      if (!data.success) {
+        return reply("❌ Failed to retrieve file information from the provided Google Drive URL.");
+      }
+      
+      let fileName = data.name || "Unknown File";
+    let downloadLink = data.download_link;
+    
+      // Reply to the user that the download is in progress.
+      reply(`
+╭✦━━━━━━━━━━━━━━━━━━━━━━━━━━✦╮
+┃ 𝒢𝓸𝓸𝓰𝓁𝓮 𝒟𝓇𝒾𝓋𝑒 𝒻𝒾𝓁𝑒 ┃
+╰✦━━━━━━━━━━━━━━━━━━━━━━━━━━✦╯
 
-//mediafire dl
-cmd({
-    pattern: "mediafire",
-    alias: ["mfire"],
-    desc: "download mfire files",
-    category: "download",
-    react: "🔎",
-    filename: __filename
-},
-async(conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply }) => {
-    try {
-        if (!q && !q.startsWith("https://")) return reply("give me mediafire url")
-        //fetch data from api  
-        let data = await fetchJson(`${baseUrl}/api/mediafiredl?url=${q}`)
-        reply("*Downloading...*")
-        await conn.sendMessage(from, { document: { url: data.data.link_1 }, fileName: data.data.name, mimetype: data.data.file_type, caption: `${data.data.name}\n\n${yourName}` }, { quoted: mek })                                                                                                                 
+🗂️ 𝒻𝒾𝓁𝑒 𝒩𝒶𝓂𝑒: *${fileName}*
+🔗 𝒟𝑜𝓌𝓃𝓁ℴ𝒶𝒹: ${downloadLink}
+
+╭✦━━━━━━━━━━━━━━━━━━━━━━━━━━✦╮
+✧ 𝒫ℴ𝓌ℯ𝓇ℯ𝒹 𝒷𝓎 𝒽𝒶𝓃𝓈 𝒷𝓎𝓉ℯ 𝓂𝒹 ✧
+╰✦━━━━━━━━━━━━━━━━━━━━━━━━━━✦╯`
+      );
+  
+      // Send the file as a document.
+      // The API response is expected to include:
+      //   - data.name (the file name)
+      //   - data.download_link (the URL to download the file)
+      // If your API returns the JSON without a wrapping "data" property,
+      // adjust the property access accordingly.
+      await conn.sendMessage(from, { 
+        document: { url: data.download_link }, 
+        fileName: data.name, 
+        mimetype: "application/octet-stream", 
+        caption: `${data.name}\n\n${yourName || ""}`
+      }, { quoted: mek });
+      
     } catch (e) {
-        console.log(e)
-        reply(`${e}`)
+      console.log(e);
+      reply(`❌ An error occurred: ${e}`);
     }
-})
+  });
+  

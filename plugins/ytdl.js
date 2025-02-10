@@ -5,107 +5,119 @@ const yts = require('yt-search')
 cmd({
     pattern: "song",
     alias: ["play"],
-    react: "🎵",
-    desc: "downlod song",
-    category: "downlod",
+    react: "🎼",
+    desc: "Download high-quality music",
+    category: "download",
     filename: __filename
 },
 async(conn, mek, m,{from, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply}) => {
 try{
 
-if(!q) return reply("*❌Please give me url or titel*")
+if(!q) return reply("*🌀𝗘𝗥𝗥𝗢𝗥! 𝗣𝗹𝗲𝗮𝘀𝗲 𝗽𝗿𝗼𝘃𝗶𝗱𝗲 𝗮 𝘀𝗼𝗻𝗴 𝗻𝗮𝗺𝗲 𝗼𝗿 𝗬𝗼𝘂𝗧𝘂𝗯𝗲 𝗟𝗶𝗻𝗸🌊*")
 const search = await yts(q)
 const deta = search.videos[0];
 const url = deta.url 
 
 let desc= `
-╭═══════════════════⊷❍
-┃ *📽️ Hans Byte MD SONG-𝗗𝗢𝗪𝗡𝗟𝗢𝗔𝗗𝗘𝗥📽️*
-╰══════════⊷
-┃ ℹ️ *title* : *${deta.title}*
-┃ 📋 *description* : *${deta.description}*
-┃ 🕘 *time* : *${deta.timestamp}*
-┃ 📌 *ago* : *${deta.ago}*
-┃ 📉 *views* : *${deta.views}*
-╰──━━━━━━━══━━━━━━━━━┈╯
+✦♬♪♫𝓢𝓞𝓝𝓖-𝓓𝓞𝓦𝓝𝓛𝓞𝓐𝓓𝓔𝓡♫♪♬✦
 
-*©ᴘᴏᴡᴇʀᴅ ʙʏ Hans Byte ᴍᴅ*
+◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈
 
+❖  𝕿𝖎𝖙𝖑𝖊:  『${deta.title}』
 
+✧⋄⋆⋅⋅⋅⋆⋄✧⋄⋆⋅⋅⋅⋆⋄✧⋄⋆⋅⋅⋅⋆⋄✧
+
+📜  𝕯𝖊𝖘𝖈𝖗𝖎𝖕𝖙𝖎𝖔𝖓: 
+『${deta.description}』
+
+✧⋄⋆⋅⋅⋅⋆⋄✧⋄⋆⋅⋅⋅⋆⋄✧⋄⋆⋅⋅⋅⋆⋄✧
+
+⏳  𝕿𝖎𝖒𝖊𝖘𝖙𝖆𝖒𝖕:  ${deta.timestamp}
+
+🕒  𝕬𝖌𝖔:  ${deta.ago}
+
+👁️  𝖁𝖎𝖊𝖜𝖘:  ${deta.views}
+
+◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈
+
+✨  𝓟𝓸𝔀𝓮𝓻𝓮𝓭 𝓫𝔂 𝓗𝓪𝓷𝓼 𝓑𝔂𝓽𝓮 𝓜𝓓  ✨
 `
 
 await conn.sendMessage(from,{image :{ url: deta.thumbnail},caption:desc},{quoted:mek});
 
-//downlod audio+ document
-
+// Download audio+document
 const res = await fetch(`https://api.davidcyriltech.my.id/youtube/mp3?url=${url}`);
 const data = await res.json();
-if (!data.success) return reply("❌ Failed to fetch audio.");
+if (!data.success) return reply("🌀𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱 𝗙𝗮𝗶𝗹𝗲𝗱! 𝗣𝗹𝗲𝗮𝘀𝗲 𝘁𝗿𝘆 𝗮𝗴𝗮𝗶𝗻🌊");
 
 let downloadUrl = data.result.downloadUrl;
 
-//send audio message 
-await conn.sendMessage(from,{audio:{url:downloadUrl},mimetype:"audio/mpeg",caption :"*©ᴘᴏᴡᴇʀᴇᴅ ʙʏ Hans Byte ᴍᴅ*"},{quoted:mek})
-await conn.sendMessage(from,{document:{url:downloadUrl},mimetype:"audio/mpeg",fileName:deta.title + ".mp3" ,caption :"*©ᴘᴏᴡᴇʀᴇᴅ ʙʏ Hans Byte ᴍᴅ*"},{quoted:mek})
-
-  
+// Send audio message 
+await conn.sendMessage(from,{audio:{url:downloadUrl},mimetype:"audio/mpeg",caption :"🎧 𝗠𝘂𝘀𝗶𝗰 𝗯𝘆 𝗛𝗮𝗻𝘀 𝗕𝘆𝘁𝗲 𝗠𝗗 🌟"},{quoted:mek})
+await conn.sendMessage(from,{document:{url:downloadUrl},mimetype:"audio/mpeg",fileName:deta.title + ".mp3" ,caption :"📥 𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱𝗲𝗱 𝘄𝗶𝘁𝗵 𝗛𝗮𝗻𝘀 𝗕𝘆𝘁𝗲 𝗠𝗗 💫"},{quoted:mek})
 
 }catch(e){
 console.log(e)
-reply(`${e}`)
+reply(`🌀𝗘𝗥𝗥𝗢𝗥! ${e} 🌊`)
 }
 })
 
-//========video dl=======
-
+// ======== VIDEO DL ========
 cmd({
     pattern: "video",
-    react: "🎥",
-    desc: "downlod video",
-    category: "downlod",
+    react: "🎬",
+    desc: "Download HD videos",
+    category: "download",
     filename: __filename
 },
 async(conn, mek, m,{from, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply}) => {
 try{
 
-if(!q) return reply("❌Please give me url or title")
+if(!q) return reply("*🌀𝗘𝗥𝗥𝗢𝗥! 𝗣𝗹𝗲𝗮𝘀𝗲 𝗽𝗿𝗼𝘃𝗶𝗱𝗲 𝗮 𝘃𝗶𝗱𝗲𝗼 𝗻𝗮𝗺𝗲 𝗼𝗿 𝗬𝗼𝘂𝗧𝘂𝗯𝗲 𝗟𝗶𝗻𝗸🌊*")
 const search = await yts(q)
 const deta = search.videos[0];
 const url = deta.url 
 
 let desc= `
-╭═══════════════════⊷❍
-┃ *📽️ Hans Byte MD 𝗩𝗜𝗗𝗘𝗢-𝗗𝗢𝗪𝗡𝗟𝗢𝗔𝗗𝗘𝗥📽️*
-╰══════════⊷
-┃ ℹ️ *title* : *${deta.title}*
-┃ 📋 *description* : *${deta.description}*
-┃ 🕘 *time* : *${deta.timestamp}*
-┃ 📌 *ago* : *${deta.ago}*
-┃ 📉 *views* : *${deta.views}*
-╰──━━━━━━━━━══━━━━━━━━┈╯
+✦𝓥𝓘𝓓𝓔𝓞-𝓓𝓞𝓦𝓝𝓛𝓞𝓐𝓓𝓔𝓡 ✦
 
-*©ᴘᴏᴡᴇʀᴅ ʙʏ Hans Byte ᴍᴅ*
+◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈
 
+❖  𝕿𝖎𝖙𝖑𝖊:  『${deta.title}』
+
+✧⋄⋆⋅⋅⋅⋆⋄✧⋄⋆⋅⋅⋅⋆⋄✧⋄⋆⋅⋅⋅⋆⋄✧
+
+📜  𝕯𝖊𝖘𝖈𝖗𝖎𝖕𝖙𝖎𝖔𝖓: 
+『${deta.description}』
+
+✧⋄⋆⋅⋅⋅⋆⋄✧⋄⋆⋅⋅⋅⋆⋄✧⋄⋆⋅⋅⋅⋆⋄✧
+
+⏳  𝕿𝖎𝖒𝖊𝖘𝖙𝖆𝖒𝖕:  ${deta.timestamp}
+
+🕒  𝕬𝖌𝖔:  ${deta.ago}
+
+👁️  𝖁𝖎𝖊𝖜𝖘:  ${deta.views}
+
+◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈
+
+✨  𝓟𝓸𝔀𝓮𝓻𝓮𝓭 𝓫𝔂 𝓗𝓪𝓷𝓼 𝓑𝔂𝓽𝓮 𝓜𝓓  ✨
 `
 
 await conn.sendMessage(from,{image :{ url: deta.thumbnail},caption:desc},{quoted:mek});
 
-//downlod video + document 
-
+// Download video+document
 const res = await fetch(`https://api.davidcyriltech.my.id/youtube/mp3?url=${url}`);
 const data = await res.json();
-if (!data.success) return reply("❌ Failed to fetch audio.");
+if (!data.success) return reply("🌀𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱 𝗙𝗮𝗶𝗹𝗲𝗱! 𝗣𝗹𝗲𝗮𝘀𝗲 𝘁𝗿𝘆 𝗮𝗴𝗮𝗶𝗻🌊");
 
 let downloadUrl = data.result.downloadUrl;
 
-//send video  message 
-await conn.sendMessage(from,{video:{url:downloadUrl},mimetype:"video/mp4",caption :"*©ᴘᴏᴡᴇʀᴇᴅ ʙʏ Hans Byte ᴍᴅ*"},{quoted:mek})
-await conn.sendMessage(from,{document:{url:downloadUrl},mimetype:"video/mp4",fileName:deta.title + ".mp4",caption :"*©ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴀᴄᴅ-ᴍᴅ*"},{quoted:mek})
-
-  
+// Send video message
+await conn.sendMessage(from,{video:{url:downloadUrl},mimetype:"video/mp4",caption :"🎥 𝗩𝗶𝗱𝗲𝗼 𝗯𝘆 𝗛𝗮𝗻𝘀 𝗕𝘆𝘁𝗲 𝗠𝗗 🌟"},{quoted:mek})
+await conn.sendMessage(from,{document:{url:downloadUrl},mimetype:"video/mp4",fileName:deta.title + ".mp4",caption :"📥 𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱𝗲𝗱 𝘄𝗶𝘁𝗵 𝗛𝗮𝗻𝘀 𝗕𝘆𝘁𝗲 𝗠𝗗 💫"},{quoted:mek})
 
 }catch(e){
 console.log(e)
-reply(`${e}`)
+reply(`🌀𝗘𝗥𝗥𝗢𝗥! ${e} 🌊`)
 }
 })
