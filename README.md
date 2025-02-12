@@ -2,7 +2,7 @@
 
 A fun WhatsApp bot.
 
-<h4 align="center"> ✔️ No Heroku Ban! ✔️</h4>
+<h4 align="center"> ✔️ No Whatsapp Ban! ✔️</h4>
 <a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.demolab.com?font=EB+Garamond&pause=1000&width=435&lines=HANS+BYTE+BOT+BY+HANS+TEH+" alt="Typing SVG" /></a>.
 
 <p align="center">
@@ -183,7 +183,7 @@ A fun WhatsApp bot.
 2. [Sign Up On Panel](https://dashboard.katabump.com/auth/login#674583) if you don’t have Already.
 4. Click the button below to deploy using Panel:
    <br>
-   <a href='https://bot-hosting.net/?aff=1117072269395632178' target="_blank">
+   <a href='https://dashboard.katabump.com/auth/login#674583' target="_blank">
       <img alt='Deploy in Panel' src='https://img.shields.io/badge/-DEPLOY-green?style=for-the-badge&logo=Cloudflare&logoColor=white'/>
    </a>
    
