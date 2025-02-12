@@ -156,7 +156,7 @@ A fun WhatsApp bot.
 ## ```Bot Support Groups```
 <p align="center">
 
-<a href="https://chat.whatsapp.com/FoS7pSPtfMqBuoireK4aAJ"><img src="https://img.shields.io/badge/Join support group-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" />
+<a href="https://whatsapp.com/channel/0029VaZDIdxDTkKB4JSWUk1O"><img src="https://img.shields.io/badge/SUBSRIBE TO CHANNEL-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" />
 
 </p>
 
