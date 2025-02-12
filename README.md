@@ -3,18 +3,17 @@
 A fun WhatsApp bot.
 
 <h4 align="center"> ✔️ No Heroku Ban! ✔️</h4>
-<a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&random=false&width=435&lines=BY+HAROLD+MTH" alt="Typing SVG" /></a>
+<a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.demolab.com?font=EB+Garamond&pause=1000&width=435&lines=HANS+BYTE+BOT+BY+HANS+TEH+" alt="Typing SVG" /></a>.
 
 <p align="center">
   <a href="https://i.ibb.co/FLSgNhW9/Free.png">
     <img alt="HANS MD" height="400" src="https://i.ibb.co/FLSgNhW9/Free.png">
   </a>
 </p>
-<a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.demolab.com?font=Fira+Code&duration=7000&pause=1000&color=7AF700&random=false&width=435&lines=%F0%9D%99%83%F0%9D%99%96%F0%9D%99%A3%F0%9D%99%A8-%F0%9D%99%88%F0%9D%99%99+%F0%9D%99%88%F0%9D%99%90%F0%9D%99%87%F0%9D%99%8F%F0%9D%99%84%F0%9D%99%81%F0%9D%99%90%F0%9D%99%89%F0%9D%98%BE%F0%9D%99%8F%F0%9D%99%84%F0%9D%99%8A%F0%9D%99%89%F0%9D%98%BC%F0%9D%99%87+%F0%9D%98%BD%F0%9D%99%8A%F0%9D%99%8F;Hans+Md+MULTIFUNCTIONAL+Bot+MD" alt="Typing SVG" /></a>
-
+<a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.demolab.com?font=EB+Garamond&pause=1000&width=435&lines=BEST+WA+MULTIFUNCTIONAL+BOT" alt="Typing SVG" /></a>
 ### ✧✧ This bot is still under development.✧✧
 </br>
-## ✧✧✧ What' new v1.0.2?
+## ✧✧✧ NEW BOT MENU 1.0.0 
 
 ```
 ╔═════════════════╗
