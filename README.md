@@ -163,7 +163,7 @@ A fun WhatsApp bot.
 
 # Setup For Deployment 👇
 
-- FORK THE REPOSITORY [Here]https://github.com/HaroldMth/HANS_MD/fork)
+- FORK THE REPOSITORY [Here](https://github.com/HaroldMth/HANS_MD/fork)
 
 
 ## ` Pair with WhatsApp`
