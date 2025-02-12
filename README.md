@@ -220,50 +220,9 @@ https://github.com/clhuang/heroku-buildpack-webp-binaries.git
 ```
 
 ## `For Termux/Ssh/Ubuntu`
+CHECK IN THE [WIKI](https://github.com/HaroldMth/HANS_MD/wiki/DEPLOY-TERMUX)
 
-```bash
+INFO 
 
-apt update
+YOU DO NOT HAVE THE RIGHT TO MODIFY REPO IN ANY WAY ANY HOW 
 
-apt upgrade
-
-pkg update && pkg upgrade
-
-pkg install bash
-
-pkg install libwebp
-
-pkg install git -y
-
-pkg install nodejs -y 
-
-pkg install ffmpeg -y 
-
-pkg install wget
-
-pkg install yarn
-
-pkg install imagemagick -y
-
-git clone https://github.com/HaroldMth/HANS_MD/
-
-cd HANS_MD
-
-rm -rf session
-
-yarn install
-
-npm start
-
-```
-
-## `For 24/7 Activation (Termux)`
-
-```bash
-
-npm i -g pm2 && pm2 start  index.js && pm2 save && pm2 logs
-
-```
-<br>
-<br>
-</h2>
